@@ -1,0 +1,24 @@
+import numpy
+from matplotlib import pyplot
+
+#样本特征
+X=numpy.array([[1,4],[2,5],[3,6]])
+X=X.T
+Y=numpy.array([10,15,20])
+#权重
+W=numpy.array([0,0])
+b=0
+# print(X[1])
+print(X)
+for i in range(2000):
+    J=0
+    Z=numpy.dot(W,X)+b
+    dw=(Z-Y)*X
+    dw=dw.sum(axis=1)
+    db=(Z-Y)
+    db=db.sum()
+    W=W-0.01*dw
+    b=b-0.01*db
+    J=0.5*(Z-Y)**2
+    print (J.sum()/3)
+print(W,b)
